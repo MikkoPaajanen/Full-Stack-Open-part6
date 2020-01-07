@@ -4,10 +4,12 @@ import { createStore, combineReducers } from 'redux'
 import App from './App'
 import anecdoteReducer from './reducers/anecdoteReducer'
 import NotificationReducer from './reducers/NotificationReducer'
+import filterReducer from './reducers/filterReducer'
 
 const reducer = combineReducers({
   anecdotes: anecdoteReducer,
-  notification: NotificationReducer
+  notification: NotificationReducer,
+  filter: filterReducer
 })
 const store = createStore(reducer)
 
