@@ -16,9 +16,12 @@ const initialState = anecdotesAtStart.map(asObject)*/
 
 export const createAnecdote = (data) => {
   console.log('data new anecdote', data)
-  return {
-    type: 'NEW_ANECDOTE',
-    data
+  return async dispatch => {
+    const newAnecdote = await anecdoteService.createNew(data)
+    dispatch({
+      type: 'NEW_ANECDOTE',
+      data: newAnecdote
+    })
   }
 }
 
