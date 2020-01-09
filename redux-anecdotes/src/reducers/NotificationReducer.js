@@ -1,5 +1,5 @@
 const notificationAtStart = null
-
+/*
 export const votedMessage = (content) => {
   return {
     type: 'MESSAGE',
@@ -18,6 +18,23 @@ export const createdMessage = (content) => {
   return {
     type: 'MESSAGE',
     message: `you created anecdote: ${content}`
+  }
+}
+*/
+export const setNotification = (message, timeout) => {
+  console.log('message', message)
+  console.log('timeout', timeout)
+  return async dispatch => {
+    
+    dispatch({
+      type: 'MESSAGE',
+      message: message
+    })
+    const time = timeout * 1000
+    setTimeout(() => dispatch({
+      type: 'MESSAGE',
+      message: null
+    }), time)
   }
 }
 
