@@ -6,10 +6,10 @@ import { votedMessage, setNull } from '../reducers/NotificationReducer'
 
 const AnecdoteList = (props) => {
   
-  const vote = ( id, content) => {
-    console.log('vote', id)
-    props.voteAnecdote(id)
-    props.votedMessage(content)
+  const vote = ( anecdote ) => {
+    console.log('vote', anecdote)
+    props.voteAnecdote(anecdote)
+    props.votedMessage(anecdote.content)
     setTimeout(() => props.setNull(), 5000)
   }
 
@@ -23,7 +23,7 @@ const AnecdoteList = (props) => {
           </div>
           <div>
             has {anecdote.votes}
-            <button onClick={() => vote(anecdote.id, anecdote.content)}>vote</button>
+            <button onClick={() => vote(anecdote)}>vote</button>
           </div>
         </div>
       )}
